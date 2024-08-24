@@ -1,5 +1,16 @@
-const PokemonList = () => {
-    return <div>PokemonList</div>;
+import styled from "styled-components";
+import PokemonCard from "./PokemonCard";
+
+const ListContainer = styled.div``;
+
+const PokemonList = ({ pokemonList, onAddPokemon }) => {
+    return (
+        <ListContainer>
+            {pokemonList.map((pokemon) => (
+                <PokemonCard key={pokemon.id} pokemon={{}} onAdd={() => {}} isSelected={false} />
+            ))}
+        </ListContainer>
+    );
 };
 
 export default PokemonList;

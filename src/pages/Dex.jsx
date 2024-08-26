@@ -21,9 +21,11 @@ function Dex() {
     };
 
     const removePokemon = (pokemon) => {
-        {
-            /* 제거는 필터를 이용해 봅시다 */
-        }
+        const filteredPokemon = selectedPokemon.filter((element) => {
+            return element.id !== pokemon.id;
+        });
+
+        setSelectedPokemon(filteredPokemon);
     };
 
     return (

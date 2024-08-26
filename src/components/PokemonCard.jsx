@@ -10,6 +10,10 @@ const Card = styled.div`
     padding: 10px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
 `;
 
 const Button = styled.button`

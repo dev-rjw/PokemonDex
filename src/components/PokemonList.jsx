@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
+import MOCK_DATA from "../mock";
 
 const ListContainer = styled.div`
     display: grid;
@@ -11,11 +12,13 @@ const ListContainer = styled.div`
     border-radius: 10px;
 `;
 
-const PokemonList = ({ pokemonList, onAddPokemon }) => {
+const PokemonList = () => {
+    const pokemonList = MOCK_DATA;
+
     return (
         <ListContainer>
             {pokemonList.map((pokemon) => (
-                <PokemonCard key={pokemon.id} pokemon={pokemon} onAdd={() => onAddPokemon(pokemon)} isSelected={false} />
+                <PokemonCard key={pokemon.id} pokemon={pokemon} isSelected={false} />
             ))}
         </ListContainer>
     );

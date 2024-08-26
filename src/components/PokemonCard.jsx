@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { DexContext } from "../pages/Dex";
 
 const Card = styled.div`
     border: 1px solid rgb(221, 221, 221);
@@ -39,15 +41,18 @@ const P2 = styled.p`
     color: rgb(102, 102, 102);
 `;
 
-function PokemonCard({ pokemon, onAdd, onRemove, isSelected }) {
+function PokemonCard({ pokemon, isSelected }) {
     const navigate = useNavigate();
+    const { addPokemon, removePokemon } = useContext(DexContext);
 
     return (
-        <Card onClick={() => navigate(`/pokemon-detail?id=${pokemon.id}`)}>
-            <img src={pokemon.img_url} alt={pokemon.korean_name} />
-            <P1>{pokemon.korean_name}</P1>
-            <P2>No.{String(pokemon.id).padStart(3, "0")}</P2>
-            {isSelected ? <Button onClick={() => onRemove()}>삭제</Button> : <Button onClick={() => onAdd()}>추가</Button>}
+        <Card>
+            <div onClick={() => navigate(`/pokemon-detail?id=${pokemon.id}`)}>
+                <img src={pokemon.img_url} alt={pokemon.korean_name} />
+                <P1>{pokemon.korean_name}</P1>
+                <P2>No.{String(pokemon.id).padStart(3, "0")}</P2>
+            </div>
+            {isSelected ? <Button onClick={() => removePokemon(pokemon)}>삭제</Button> : <Button onClick={() => addPokemon(pokemon)}>추가</Button>}
         </Card>
     );
 }

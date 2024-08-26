@@ -25,7 +25,7 @@ const Card = styled.div`
     justify-items: center;
 `;
 
-const Dashboard = ({ selectedPokemon, onRemovePokemon }) => {
+const Dashboard = ({ selectedPokemon }) => {
     const emptyPokemon = Array.from({ length: 6 - selectedPokemon.length }, () => 1);
 
     return (
@@ -33,7 +33,7 @@ const Dashboard = ({ selectedPokemon, onRemovePokemon }) => {
             <H2>나만의 포켓몬</H2>
             <Card>
                 {selectedPokemon.map((pokemon) => (
-                    <PokemonCard key={pokemon.id} pokemon={pokemon} onRemove={() => onRemovePokemon(pokemon)} isSelected={true} />
+                    <PokemonCard key={pokemon.id} pokemon={pokemon} isSelected={true} />
                 ))}
                 {emptyPokemon.map((element) => (
                     <PokemonBall key={element} />

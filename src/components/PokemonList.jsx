@@ -15,7 +15,7 @@ const PokemonList = ({ pokemonList, onAddPokemon }) => {
     return (
         <ListContainer>
             {pokemonList.map((pokemon) => (
-                <PokemonCard key={pokemon.id} pokemon={pokemon} onAdd={() => onAddPokemon()} isSelected={false} />
+                <PokemonCard key={pokemon.id} pokemon={pokemon} onAdd={() => onAddPokemon(pokemon)} isSelected={false} />
             ))}
         </ListContainer>
     );

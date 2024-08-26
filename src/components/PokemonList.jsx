@@ -3,7 +3,7 @@ import PokemonCard from "./PokemonCard";
 
 const ListContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(7, minmax(150px, 1fr));
     gap: 20px;
     background-color: rgb(240, 240, 240);
     padding: 20px;

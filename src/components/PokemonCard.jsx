@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Card = styled.div`
@@ -39,8 +40,10 @@ const P2 = styled.p`
 `;
 
 function PokemonCard({ pokemon, onAdd, onRemove, isSelected }) {
+    const navigate = useNavigate();
+
     return (
-        <Card>
+        <Card onClick={() => navigate(`/pokemon-detail?id=${pokemon.id}`)}>
             <img src={pokemon.img_url} alt={pokemon.korean_name} />
             <P1>{pokemon.korean_name}</P1>
             <P2>No.{String(pokemon.id).padStart(3, "0")}</P2>
